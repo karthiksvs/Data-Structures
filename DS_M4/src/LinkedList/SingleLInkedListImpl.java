@@ -193,11 +193,8 @@ public class SingleLInkedListImpl {
 		}  
 		else {  
 			while(current != null) {  
-				//Node index will point to node next to current  
 				index = current.next;  
-
 				while(index != null) {  
-					//If current node's data is greater than index's node data, swap the data between them  
 					if(current.data > index.data) {  
 						temp = current.data;  
 						current.data = index.data;  
