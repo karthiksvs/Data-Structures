@@ -112,12 +112,20 @@ public class Solution {
 			temp=temp.next;
 		}
 		Arrays.sort(ar);
-		for(int i=0;i<ar.length;i++) {
+		int co=0;
+		for(int i=0;i<ar.length-2;i++) {
 			if(ar[i]==ar[i+1] && i<ar.length-2) {
 				char c=(char) (ar[i]);
 				System.out.println("Loop Strting at:"+c); 
+				co=0;
 				break;
 			}
+			else {
+				co=1;
+			}
+		}
+		if(co==1) {
+			System.out.println("No loop Found");
 		}
 	}
 	public static void main(String args[]) 
@@ -142,7 +150,7 @@ public class Solution {
 					System.out.println("Enter data");
 					String data=sc.next();
 					data=data.toUpperCase();
-					for(int j=0;j<data.length();j++) {
+					for(int j=0;j<data.length();) {
 						char character = data.charAt(j); 
 						int ascii = (int) character; 	
 						enQueue(q, ascii);
