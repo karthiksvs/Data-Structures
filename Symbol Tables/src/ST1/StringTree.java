@@ -12,17 +12,19 @@ public class StringTree {
 	      public void print(Node curr) /* pre order */
 	      {
 	            if (curr != null) {
-	                  System.out.print(" value is ::" + curr.value);
+	            	  System.out.print(" value is ::" + curr.value);
 	                  System.out.println(" count is :: " + curr.count);
 	                  print(curr.lChild);
 	                  print(curr.rChild);
-	            }
+	            	}
 	      }
 	 
 	      public void add(String value) {
 	            root = add(value, root);
 	      }
-	 
+	      public void delete(String value) {
+	            root = deleteRec(value, root);
+	      }
 	      Node add(String value, Node curr) {
 	            int compare;
 	            if (curr == null) {
@@ -42,6 +44,24 @@ public class StringTree {
 	            return curr;
 	      }
 	 
+	      public Node deleteRec(String value,Node curr) 
+	  	{ 
+	    	  int compare;
+	            if (curr == null) {
+	                  return null;
+	            } 
+	            else {
+	                  compare = curr.value.compareTo(value);
+	                  if (compare == 0)
+	                        curr.count--;
+	                  else if (compare == 1)
+	                        curr.lChild = deleteRec(value, curr.lChild);
+	                  else
+	                        curr.rChild = deleteRec(value, curr.rChild);
+	            }
+	            return curr;
+	      } 
+	      
 	      boolean find(String value) {
 	            boolean ret = find(root, value);
 	            System.out.println("Find " + value + " Return " + ret);

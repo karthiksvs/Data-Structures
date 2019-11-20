@@ -5,12 +5,10 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		StringTree b=new StringTree();
-		Node root=null;
 		int c=0;
-		int cou=0;
 		Scanner s=new Scanner(System.in);
 		while(c!=9) {
-			System.out.println("1.Add Element\n2.Find element\n3.Frequency\n4.Display\n5.Exit\n");
+			System.out.println("1.Add Element\n2.Find element\n3.Frequency\n4.Display\n5.Exit\n6.Delete");
 			System.out.println("Choose your option");
 			int op=s.nextInt();
 			switch(op){
@@ -45,6 +43,11 @@ public class Main {
 				c=9;
 				System.exit(0);
 				break;	
+			case 6:
+				System.out.println("Enter the String to delete:");
+				String value=s.next();
+				b.delete(value);
+				break;
 			}
 		}
 	}
