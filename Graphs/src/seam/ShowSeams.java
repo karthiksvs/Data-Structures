@@ -11,20 +11,17 @@
 package seam;
 
 import java.util.Scanner;
-
 import edu.princeton.cs.algs4.Picture;
 import edu.princeton.cs.algs4.StdOut;
 
 public class ShowSeams {
-
     private static void showHorizontalSeam(SeamCarver sc) {
         Picture picture = SCUtility.toEnergyPicture(sc);
         int[] horizontalSeam = sc.findHorizontalSeam();
         Picture overlay = SCUtility.seamOverlay(picture, true, horizontalSeam);
         overlay.show();
     }
-
-
+    
     private static void showVerticalSeam(SeamCarver sc) {
         Picture picture = SCUtility.toEnergyPicture(sc);
         int[] verticalSeam = sc.findVerticalSeam();
@@ -46,7 +43,6 @@ public class ShowSeams {
 
         StdOut.printf("Displaying vertical seam calculated.\n");
         showVerticalSeam(sc);
-
     }
 
 }

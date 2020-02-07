@@ -12,24 +12,26 @@
 package seam;
 
 import java.util.Scanner;
-
 import edu.princeton.cs.algs4.Picture;
 import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.Stopwatch;
 
 public class ResizeDemo {
     public static void main(String[] args) {
-        if (args.length != 3) {
-            StdOut.println("Usage:\njava ResizeDemo [image filename] [num cols to remove] [num rows to remove]");
-            return;
-        }
+//        if (args.length != 3) {
+//            StdOut.println("Usage:\njava ResizeDemo [image filename] [num cols to remove] [num rows to remove]");
+//            return;
+//        }
         System.out.println("Enter the file name:");
     	Scanner s=new Scanner(System.in);
     	String s1=s.nextLine();
         Picture inputImg = new Picture(s1);
-        int removeColumns = Integer.parseInt(args[1]);
-        int removeRows = Integer.parseInt(args[2]); 
-
+        System.out.println("Enter the column to remove:");
+    	String col1=s.next();
+        int removeColumns = Integer.parseInt(col1);
+        System.out.println("Enter the rows to remove:");
+    	String col2=s.next();
+        int removeRows = Integer.parseInt(col2); 
         StdOut.printf("image is %d columns by %d rows\n", inputImg.width(), inputImg.height());
         SeamCarver sc = new SeamCarver(inputImg);
 
@@ -51,6 +53,5 @@ public class ResizeDemo {
         StdOut.println("Resizing time: " + sw.elapsedTime() + " seconds.");
         inputImg.show();
         outputImg.show();
-    }
-    
+    }   
 }
